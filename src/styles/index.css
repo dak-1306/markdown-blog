@@ -1,0 +1,33 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* color icon */
+  --color-icon-home: #3b82f6;
+  --color-icon-posts: #f97316;
+  /* Solid Colors */
+  --color-primary: #3eb489;
+  --color-primary-light: #a7ebdc;
+  --color-primary-dark: #2f8f6d;
+
+  --color-bg: #ffffff;
+  --color-surface: #f9fafb;
+  --color-text: #111111;
+  --color-text-muted: #4b5563;
+  --color-border: #e5e7eb;
+
+  /* Gradient Colors */
+  --gradient-primary: linear-gradient(to right, #3eb489, #a7ebdc);
+  --gradient-highlight: linear-gradient(to right, #3eb489, #fde68a);
+
+  /* Status */
+  --color-success: #22c55e;
+  --color-warning: #eab308;
+  --color-error: #ef4444;
+
+  /* Shadow */
+  --shadow-primary: 0 4px 10px rgba(62, 180, 137, 0.3);
+  --shadow-soft: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
