@@ -11,6 +11,7 @@ export default {
         primary: "var(--color-primary)",
         "primary-light": "var(--color-primary-light)",
         "primary-dark": "var(--color-primary-dark)",
+        "primary-20": "var(--color-primary-20)",
         bg: "var(--color-bg)",
         surface: "var(--color-surface)",
         text: "var(--color-text)",

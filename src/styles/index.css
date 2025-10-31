@@ -4,13 +4,11 @@
 @tailwind utilities;
 
 :root {
-  /* color icon */
-  --color-icon-home: #3b82f6;
-  --color-icon-posts: #f97316;
   /* Solid Colors */
   --color-primary: #3eb489;
   --color-primary-light: #a7ebdc;
   --color-primary-dark: #2f8f6d;
+  --color-primary-20: rgba(62, 180, 137, 0.18);
 
   --color-bg: #ffffff;
   --color-surface: #f9fafb;
@@ -30,4 +28,21 @@
   /* Shadow */
   --shadow-primary: 0 4px 10px rgba(62, 180, 137, 0.3);
   --shadow-soft: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+@layer base {
+  /* Set default fonts for the entire site */
+  body {
+    font-family: "Poppins", sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Sora", sans-serif;
+  }
 }
