@@ -1,11 +1,22 @@
 import { Link } from "react-router-dom";
 
-function Card({ title, content, img, author, date, tags, onClick, href }) {
-  const CardWrapper = href ? Link : "article";
+function Card({ id, title, content, img, author, date, tags, onClick, href }) {
+  // build internal path if id provided; fallback to href if given
+  const internalPath = id
+    ? `/posts/${id}`
+    : href && String(href).startsWith("/")
+    ? href
+    : null;
+
+  const Wrapper = internalPath ? Link : href ? "a" : "article";
+
   const baseClasses =
     "bg-surface text-text border border-border rounded-lg p-6 shadow-soft transition-all duration-150 ease-out hover:shadow-primary hover:-translate-y-1.5 hover:scale-[1.02] active:translate-y-0 active:scale-[0.998] focus-within:outline-none focus-within:ring-4 focus-within:ring-primary/10";
-  const cardProps = href
-    ? { to: href, className: baseClasses }
+
+  const cardProps = internalPath
+    ? { to: internalPath, className: baseClasses }
+    : href
+    ? { href, className: baseClasses }
     : { className: baseClasses };
 
   if (onClick) {
@@ -14,7 +25,7 @@ function Card({ title, content, img, author, date, tags, onClick, href }) {
   }
 
   return (
-    <CardWrapper {...cardProps}>
+    <Wrapper {...cardProps}>
       {img && (
         <div className="w-full mb-4 rounded-md overflow-hidden bg-gray-100">
           <img
@@ -60,7 +71,7 @@ function Card({ title, content, img, author, date, tags, onClick, href }) {
           )}
         </div>
       )}
-    </CardWrapper>
+    </Wrapper>
   );
 }
 

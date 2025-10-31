@@ -2,7 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import MainLayout from "../components/layout/MainLayout";
 import { markdownToHtml } from "../utils/markdownParser";
-import posts from "../assets/data";
+import { getPostById } from "../services/posts";
 
 function ViewPost() {
   const { id } = useParams();
@@ -10,12 +10,13 @@ function ViewPost() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate async fetch - in real app you'd use services/posts.getPostById(id)
-    const foundPost = posts.find((p) => p.id === id);
-    setTimeout(() => {
-      setPost(foundPost || null);
+    const fetchPost = async () => {
+      setLoading(true);
+      const post = await getPostById(id);
+      setPost(post);
       setLoading(false);
-    }, 100); // Small delay to show loading state
+    };
+    fetchPost();
   }, [id]);
 
   if (loading) {
